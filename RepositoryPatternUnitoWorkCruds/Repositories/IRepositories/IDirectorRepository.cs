@@ -1,11 +1,13 @@
-﻿using System;
+﻿using RepositoryPatternUnitoWorkCruds.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace RepositoryPatternUnitoWorkCruds.Repositories.IRepositories
 {
-    interface IDirectorRepository
+    public interface IDirectorRepository
     {
+        IEnumerable<Director> GetAllDirectorByMovieLanguage(string language);
     }
 }
