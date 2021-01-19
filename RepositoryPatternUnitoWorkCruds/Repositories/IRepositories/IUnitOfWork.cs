@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace RepositoryPatternUnitoWorkCruds.Repositories.IRepositories
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork: IDisposable
     {
+        Task commit();
     }
 }

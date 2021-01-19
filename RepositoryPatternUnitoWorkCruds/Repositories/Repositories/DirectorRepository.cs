@@ -7,37 +7,17 @@ using System.Threading.Tasks;
 
 namespace RepositoryPatternUnitoWorkCruds.Repositories.Repositories
 {
-    public class DirectorRepository : IGenericRepository<Director>, IDirectorRepository
+    public class DirectorRepository : GenericRepository<Director>, IDirectorRepository
     {
-        public void AddGeneric(Director entity)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void DeleteGeneric(Director entity)
+        private readonly MoviesContext _context;
+        public DirectorRepository(MoviesContext context) : base(context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
-
         public IEnumerable<Director> GetAllDirectorByMovieLanguage(string language)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Director> GetAllGeneric()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Director GetByIdGeneric(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public void UpdateGeneric(Director entity)
-        {
-            throw new NotImplementedException();
+            //return (from m in this._context.Movies.Where(m => m.Language == language));
         }
     }
 }
