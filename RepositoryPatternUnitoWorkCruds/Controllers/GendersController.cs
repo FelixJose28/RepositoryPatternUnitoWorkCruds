@@ -59,5 +59,31 @@ namespace RepositoryPatternUnitoWorkCruds.Controllers
             }
             return View(genero);
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var objectData = _unitOfWork.generoRepository.GetByIdGeneric(id);
+            if (objectData != null)
+            {
+                return View(objectData);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeletePost(Genero genero)
+        {
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.generoRepository.DeleteGeneric(genero);
+                await _unitOfWork.commit();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(genero);
+        }
+
+
     }
 }
