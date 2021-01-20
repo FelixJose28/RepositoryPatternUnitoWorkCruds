@@ -18,7 +18,7 @@ namespace RepositoryPatternUnitoWorkCruds.Controllers
         }
         public IActionResult Index()
         {
-            return View(_unitOfWork.MovieRepositoryGG.GetAllGeneric());
+            return View(_unitOfWork.movieRepositoryGG.GetAllGeneric());
         }
         public IActionResult Create()
         {
@@ -30,7 +30,7 @@ namespace RepositoryPatternUnitoWorkCruds.Controllers
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.MovieRepositoryGG.AddGeneric(movie);
+                _unitOfWork.movieRepositoryGG.AddGeneric(movie);
                 await _unitOfWork.commit();
                 return RedirectToAction(nameof(Index));
             }

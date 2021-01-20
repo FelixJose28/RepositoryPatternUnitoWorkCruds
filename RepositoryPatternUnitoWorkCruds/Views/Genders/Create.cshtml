@@ -1,0 +1,18 @@
+﻿@model Genero
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<form asp-action="Create" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <a asp-action="Index" class="w-75 btn btn-success">Volver atras</a>
+    <button class="btn btn-info w-75" type="submit">Agregar</button>
+</form>
+

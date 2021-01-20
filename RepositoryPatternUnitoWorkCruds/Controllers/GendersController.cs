@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace RepositoryPatternUnitoWorkCruds.Controllers
 {
-    public class DirectorsController : Controller
+    public class GendersController : Controller
     {
         private readonly UnitOfWork _unitOfWork;
-        public DirectorsController(IUnitOfWork unitOfWork)
+        public GendersController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = (UnitOfWork)unitOfWork;
         }
         public IActionResult Index()
         {
-            return View(_unitOfWork.directorRepositoryGG.GetAllGeneric());
+            return View(_unitOfWork.generoRepository.GetAllGeneric());
         }
 
         public IActionResult Create()
@@ -27,15 +27,15 @@ namespace RepositoryPatternUnitoWorkCruds.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Director director)
+        public async Task<IActionResult> Create(Genero genero)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.directorRepositoryGG.AddGeneric(director);
+                _unitOfWork.generoRepository.AddGeneric(genero);
                 await _unitOfWork.commit();
                 return RedirectToAction(nameof(Index));
             }
-            return View(director);
+            return View(genero);
         }
     }
 }

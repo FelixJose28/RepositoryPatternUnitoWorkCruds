@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Genero>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Index</h1>
+<a class="btn btn-success float-right w-75" asp-action="Create">Crear Movie</a>
+@if (Model.Count() > 0)
+{
+
+
+    <h1>Generos</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre del genero</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var genero in Model)
+            {
+                <tr>
+                    <td>@genero.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <h1 class="text-danger">No hay genero agregadas</h1>
+}
+
