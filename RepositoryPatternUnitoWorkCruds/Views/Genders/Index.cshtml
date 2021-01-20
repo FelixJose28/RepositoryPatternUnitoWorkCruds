@@ -3,14 +3,13 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Index</h1>
-<a class="btn btn-success float-right w-75" asp-action="Create">Crear Movie</a>
+<a class="btn btn-success float-right w-25" asp-action="Create">Agregar genero</a>
 @if (Model.Count() > 0)
 {
 
 
-    <h1>Generos</h1>
-    <table class="table table-striped">
+    <h1 class="mt-2">Generos listados</h1>
+    <table class="table table-striped mt-4">
         <thead>
             <tr>
                 <th>Nombre del genero</th>
@@ -23,8 +22,8 @@
                 <tr>
                     <td>@genero.Name</td>
                     <td>
-                        <a asp-route-id="@genero.Id" asp-action="Edit" class="btn btn-warning">Editar</a>
-                        <a asp-route-id="@genero.Id" asp-action="Delete" class="btn btn-danger">Borrar</a>
+                        <a asp-route-id="@genero.Id" asp-action="Edit" class="btn btn-warning mr-3">Editar</a>
+                        <a asp-route-id="@genero.Id" asp-action="Delete" class="btn btn-danger ml-3">Borrar</a>
                     </td>
                 </tr>
             }
@@ -34,6 +33,6 @@
 }
 else
 {
-    <h1 class="text-danger">No hay genero agregadas</h1>
+    <h1 class="text-danger mt-4">No hay generos listados</h1>
 }
 
