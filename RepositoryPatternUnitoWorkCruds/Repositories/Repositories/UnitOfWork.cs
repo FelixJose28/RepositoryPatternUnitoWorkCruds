@@ -11,14 +11,17 @@ namespace RepositoryPatternUnitoWorkCruds.Repositories.Repositories
     {
         private readonly MoviesContext _context;
 
-        public DirectorRepository DirectorRepositoryGG { get; private set; }
-        public MovieRepository MovieRepositoryGG { get; private set; }
+        public DirectorRepository directorRepositoryGG { get; private set; }
+        public MovieRepository movieRepositoryGG { get; private set; }
+        public GeneroRepository generoRepository { get; private set; }
+
 
         public UnitOfWork(MoviesContext context)
         {
             _context = context;
-            DirectorRepositoryGG = new DirectorRepository(_context);
-            MovieRepositoryGG = new MovieRepository(_context);
+            directorRepositoryGG = new DirectorRepository(_context);
+            movieRepositoryGG = new MovieRepository(_context);
+            generoRepository = new GeneroRepository(_context);
         }
 
         public async Task commit()
