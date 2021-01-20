@@ -14,6 +14,7 @@
         <thead>
             <tr>
                 <th>Nombre del genero</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,10 @@
             {
                 <tr>
                     <td>@genero.Name</td>
+                    <td>
+                        <a asp-route-id="@genero.Id" asp-action="Edit" class="btn btn-warning">Editar</a>
+                        <a asp-route-id="@genero.Id" asp-action="Delete" class="btn btn-danger">Borrar</a>
+                    </td>
                 </tr>
             }
         </tbody>

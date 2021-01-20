@@ -15,6 +15,7 @@
             <tr>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,10 @@
                 <tr>
                     <td>@director.FirstName</td>
                     <td>@director.LastName</td>
+                    <td>
+                        <a asp-route-id="@director.Id" asp-action="Edit" class="btn btn-warning">Editar</a>
+                        <a asp-route-id="@director.Id" asp-action="Delete" class="btn btn-danger">Borrar</a>
+                    </td>
                 </tr>
             }
         </tbody>
