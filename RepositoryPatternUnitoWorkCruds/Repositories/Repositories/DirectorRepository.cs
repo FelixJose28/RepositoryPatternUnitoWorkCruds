@@ -17,6 +17,7 @@ namespace RepositoryPatternUnitoWorkCruds.Repositories.Repositories
         }
         public IEnumerable<Director> GetAllDirectorByMovieLanguage(string language)
         {
+                return null;
             //return (from m in this._context.Movies.Where(m => m.Language == language));
         }
     }

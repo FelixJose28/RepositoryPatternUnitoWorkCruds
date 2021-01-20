@@ -16,7 +16,7 @@ namespace RepositoryPatternUnitoWorkCruds.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_unitOfWork.MovieRepositoryGG.GetAllGeneric());
         }
     }
 }
