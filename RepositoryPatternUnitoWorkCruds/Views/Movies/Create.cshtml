@@ -1,0 +1,35 @@
+﻿@model Movie
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span class="text-danger" asp-validation-for="Title"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Language"></label>
+        <input asp-for="Language" class="form-control" />
+        <span class="text-danger" asp-validation-for="Language"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Rating"></label>
+        <input asp-for="Rating" class="form-control" />
+        <span class="text-danger" asp-validation-for="Rating"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ReleaseDate"></label>
+        <input asp-for="ReleaseDate" class="form-control" />
+        <span class="text-danger" asp-validation-for="ReleaseDate"></span>
+    </div>
+    <a asp-action="Index" class="w-75 btn btn-success">Volver atras</a>
+    <button class="btn btn-info w-75" type="submit">Agregar</button>
+</form>
+

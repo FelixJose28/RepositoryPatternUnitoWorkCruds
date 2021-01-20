@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RepositoryPatternUnitoWorkCruds.Models;
 using RepositoryPatternUnitoWorkCruds.Repositories.IRepositories;
 using RepositoryPatternUnitoWorkCruds.Repositories.Repositories;
 using System;
@@ -18,6 +19,20 @@ namespace RepositoryPatternUnitoWorkCruds.Controllers
         public IActionResult Index()
         {
             return View(_unitOfWork.MovieRepositoryGG.GetAllGeneric());
+        }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Movie movie)
+        {
+            if (ModelState.IsValid)
+            {
+                _unitOfWork.MovieRepositoryGG.AddGeneric(movie);
+            }
+            return View(movie);
         }
     }
 }
