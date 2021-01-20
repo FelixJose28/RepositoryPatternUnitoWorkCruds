@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Director> 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a class="btn btn-success float-right w-75" asp-action="Create">Crear Movie</a>
+@if (Model.Count() > 0)
+{
+
+
+    <h1>Movie</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var director in Model)
+            {
+                <tr>
+                    <td>@director.FirstName</td>
+                    <td>@director.LastName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <h1 class="text-danger">No hay peliculas agregadas</h1>
+}
+

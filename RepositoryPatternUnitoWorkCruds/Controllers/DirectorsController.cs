@@ -9,32 +9,33 @@ using System.Threading.Tasks;
 
 namespace RepositoryPatternUnitoWorkCruds.Controllers
 {
-    public class MoviesController : Controller
+    public class DirectorsController : Controller
     {
         private readonly UnitOfWork _unitOfWork;
-        public MoviesController(IUnitOfWork unitOfWork)
+        public DirectorsController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = (UnitOfWork)unitOfWork;
         }
         public IActionResult Index()
         {
-            return View(_unitOfWork.MovieRepositoryGG.GetAllGeneric());
+            return View(_unitOfWork.DirectorRepositoryGG.GetAllGeneric());
         }
+
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Movie movie)
+        public async Task<IActionResult> Create(Director director)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.MovieRepositoryGG.AddGeneric(movie);
+                _unitOfWork.DirectorRepositoryGG.AddGeneric(director);
                 await _unitOfWork.commit();
                 return RedirectToAction(nameof(Index));
             }
-            return View(movie);
+            return View(director);
         }
     }
 }
