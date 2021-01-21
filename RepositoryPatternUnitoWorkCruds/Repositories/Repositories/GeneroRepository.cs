@@ -1,4 +1,5 @@
-﻿using RepositoryPatternUnitoWorkCruds.Models;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using RepositoryPatternUnitoWorkCruds.Models;
 using RepositoryPatternUnitoWorkCruds.Repositories.IRepositories;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,16 @@ namespace RepositoryPatternUnitoWorkCruds.Repositories.Repositories
         {
             _context = context;
         }
+
+        public IEnumerable<SelectListItem> GetListaGenerosIGeneros()
+        {
+            return _context.Generos.Select(i => new SelectListItem()
+            {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            });
+        }
+
         public void Nothing()
         {
             throw new NotImplementedException();

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RepositoryPatternUnitoWorkCruds.Models;
+using RepositoryPatternUnitoWorkCruds.Models.ViewModel;
 using RepositoryPatternUnitoWorkCruds.Repositories.IRepositories;
 using RepositoryPatternUnitoWorkCruds.Repositories.Repositories;
 using System;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,13 +18,21 @@ namespace RepositoryPatternUnitoWorkCruds.Controllers
         {
             _unitOfWork = (UnitOfWork)unitOfWork;
         }
+        [HttpGet]
         public IActionResult Index()
         {
             return View(_unitOfWork.movieRepositoryGG.GetAllGeneric());
         }
+        [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            MovieVM vm = new MovieVM()
+            {
+                Movie = new Movie(),
+                ListaDirector = _unitOfWork.directorRepositoryGG.GetListaDirectoresIDirectores(),
+                ListaGenero = _unitOfWork.generoRepository.GetListaGenerosIGeneros()
+            };
+            return View(vm);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

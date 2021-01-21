@@ -1,4 +1,5 @@
-﻿using RepositoryPatternUnitoWorkCruds.Models;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using RepositoryPatternUnitoWorkCruds.Models;
 using RepositoryPatternUnitoWorkCruds.Repositories.IRepositories;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,15 @@ namespace RepositoryPatternUnitoWorkCruds.Repositories.Repositories
         {
                 return null;
             //return (from m in this._context.Movies.Where(m => m.Language == language));
+        }
+
+        public IEnumerable<SelectListItem> GetListaDirectoresIDirectores()
+        {
+            return _context.Directors.Select(i => new SelectListItem()
+            {
+                Text = i.FirstName + ' ' + i.LastName,
+                Value = i.Id.ToString()
+            }) ;
         }
     }
 }
