@@ -12,26 +12,29 @@
     <table class="table table-striped mt-2">
         <thead>
             <tr>
-                <th>p</th>
-                <th>p</th>
-                <th>p</th>
-                <th>p</th>
-                <th>p</th>
-                <th>p</th>
-                <th>p</th>
+                <th>Titulo</th>
+                <th>Lenguaje</th>
+                <th>Fecha</th>
+                <th>Rating</th>
+                @*<th>Director</th>
+                <th>Genero</th>
+                <th>Acciones</th>*@
             </tr>
         </thead>
         <tbody>
             @foreach (var movie in Model)
             {
                 <tr>
-                    <td>@movie.Id</td>
+
                     <td>@movie.Title</td>
                     <td>@movie.Language</td>
                     <td>@movie.ReleaseDate</td>
-                    <td>@movie.Director</td>
-                    <td>@movie.Genero</td>
                     <td>@movie.Rating</td>
+                    @*<td>
+                        <a></a>
+                    </td>
+                    <td>@movie.Director.FirstName</td>
+                    <td>@movie.Genero.</td>*@
                 </tr>
             }
         </tbody>
